@@ -1,7 +1,4 @@
 import { createStore } from 'redux';
-// import * as reducers from './reducers/index';
-import myReducer from './reducers/index';
+import * as reducers from './reducers/index';
 
-// console.log(myReducer);
-
-export default createStore(myReducer);
+export default createStore(reducers.myReducer);
