@@ -13,4 +13,12 @@ store.dispatch(actions
 	.recordGuess(11)
 );
 
+store.dispatch(actions
+	.hasWon(true)
+);
+
+store.dispatch(actions
+	.evaluate('Getting warm!')
+);
+
 console.log(store.getState());
