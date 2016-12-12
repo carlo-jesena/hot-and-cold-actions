@@ -9,4 +9,8 @@ store.dispatch(actions
 	.generateNumber(12)
 );
 
+store.dispatch(actions
+	.recordGuess(11)
+);
+
 console.log(store.getState());

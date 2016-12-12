@@ -3,7 +3,7 @@
 export const GENERATED_NUMBER = 'GENERATED_NUMBER';
 // export const GUESS = 'GUESS';
 // export const HOT_OR_COLD_FEEDBACK = 'HOT_OR_COLD_FEEDBACK';
-// export const RECORD_GUESS = 'RECORD_GUESS';
+export const RECORD_GUESS = 'RECORD_GUESS';
 
 export const generateNumber = answer => ({
 	type: GENERATED_NUMBER,
@@ -20,7 +20,7 @@ export const generateNumber = answer => ({
 // 	answer
 // });
 //
-// export const recordGuess = userGuess => ({
-// 	type: RECORD_GUESS,
-// 	userGuess
-// });
+export const recordGuess = userGuess => ({
+	type: RECORD_GUESS,
+	userGuess
+});

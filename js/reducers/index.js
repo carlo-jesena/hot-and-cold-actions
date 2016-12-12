@@ -10,7 +10,7 @@ const initialState = {
 
 // console.log(actions);
 
-export const myReducer = (state = initialState, action) => {
+export const answerReducer = (state = initialState, action) => {
 	console.log(action);
 	if (action.type === actions.GENERATED_NUMBER) {
 		return Object.assign(
