@@ -3,24 +3,27 @@ import * as actions from '../actions/index';
 // import store from '../store';
 
 const initialState = {
-	generatedNumber: 'uh-oh',
+	answer: 'uh-oh',
 	userInputArray: [42],
 	guess: 'test'
 };
 
+// console.log(actions);
+
 export const myReducer = (state = initialState, action) => {
-	if (action.type === GENERATED_NUMBER) {
+	console.log(action);
+	if (action.type === actions.GENERATED_NUMBER) {
 		return Object.assign(
 			{},
 			initialState,
 			{
-				generatedNumber
+				answer: action.answer
 			}
 		);
 	}
 };
 
-console.log('testing', myReducer);
+// console.log('testing', myReducer);
 
 // # App initialization #
 

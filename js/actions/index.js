@@ -1,13 +1,13 @@
 // ./actions/index.js
 
 export const GENERATED_NUMBER = 'GENERATED_NUMBER';
-export const GUESS = 'GUESS';
-export const HOT_OR_COLD_FEEDBACK = 'HOT_OR_COLD_FEEDBACK';
-export const RECORD_GUESS = 'RECORD_GUESS';
+// export const GUESS = 'GUESS';
+// export const HOT_OR_COLD_FEEDBACK = 'HOT_OR_COLD_FEEDBACK';
+// export const RECORD_GUESS = 'RECORD_GUESS';
 
-export const generateNumber = generatedNumber => ({
+export const generateNumber = answer => ({
 	type: GENERATED_NUMBER,
-	generatedNumber
+	answer
 });
 
 // export const guess = userInputNumber => ({
