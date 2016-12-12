@@ -20,7 +20,10 @@ export const generateNumber = answer => ({
 // 	answer
 // });
 //
-export const recordGuess = userGuess => ({
+export const recordGuess = guess => ({
 	type: RECORD_GUESS,
-	userGuess
+	guess
 });
+
+// won?
+// messages to user

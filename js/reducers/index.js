@@ -1,32 +1,24 @@
-// ./reducers/index.js
 import * as actions from '../actions/index';
-// import store from '../store';
+import {combineReducers} from 'redux';
 
-const initialState = {
-	answer: 'uh-oh',
-	userInputArray: [42],
-	guess: 'test'
-};
-
-// console.log(actions);
-
-export const answerReducer = (state = initialState, action) => {
+const answerReducer = (state = '', action) => {
 	console.log(action);
 	if (action.type === actions.GENERATED_NUMBER) {
-		return Object.assign(
-			{},
-			initialState,
-			{
-				answer: action.answer
-			}
-		);
+		return action.answer;
+	} else {
+		return state;
 	}
 };
 
-// console.log('testing', myReducer);
+const guessReducer = (state = '', action) => {
+	if (action.type === actions.RECORD_GUESS) {
+		return action.guess;
+	} else {
+		return state;
+	}
+};
 
-// # App initialization #
-
-// generate secret number
-
-// store.dispatch(secretNumber(generateSecretNumber()));
+export default combineReducers({
+	answer: answerReducer,
+	guess: guessReducer
+});
