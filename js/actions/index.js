@@ -1,32 +1,16 @@
-// UI -> Action -> State -> UI ...
-
-// ./actions/index.js
-
-export const GENERATED_NUMBER = 'GENERATED_NUMBER';
-export const GUESS = 'GUESS';
-export const FEEDBACK = 'FEEDBACK';
-export const RECORD_GUESS = 'RECORD_GUESS';
-export const HAS_WON = 'HAS_WON';
-
-const guessArray = []
-
-export const generateNumber = answer => ({
-	type: GENERATED_NUMBER,
-	answer
+export const NUMBER_GEN = 'NUMBER_GEN';
+export const numberGen = () => ({
+  type: NUMBER_GEN,
+  number:  Math.floor((Math.random() * 100) + 1)
 });
 
-export const guess = currentGuess => ({
-	type: GUESS,
-	currentGuess
-	guessArray
+export const SUBMIT_GUESS = 'SUBMIT_GUESS';
+export const submitGuess = guess => ({
+  type: SUBMIT_GUESS,
+  guess
 });
 
-export const recordGuess = newGuess => ({
-	type: RECORD_GUESS,
-	newGuess
-});
-
-export const hasWon = bool => ({
-	type: HAS_WON,
-	bool
+export const NEW_GAME = 'NEW_GAME';
+export const newGame = () => ({
+  type: NEW_GAME,
 });

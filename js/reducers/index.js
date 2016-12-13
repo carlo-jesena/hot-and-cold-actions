@@ -1,54 +1,33 @@
 import * as actions from '../actions/index';
-import {combineReducers} from 'redux';
-
-// state =
-// {
-   answer: 12
-// currentGuess:
-// guessArray:
-// hasWon:
-// }
-
-const answerReducer = (state = '', action) => {
-	switch (action.type) {
-		case actions.GENERATED_NUMBER:
-			return action.answer;
-		default:
-			return state;
-	}
+const initialHotOrColdState = {
+  secretNumber: 0,
+  guess: [],
+  message: ''
 };
-
-const guessReducer = (state = '', action) => {
-	if (action.type === actions.GUESS) {
-		//
-		return {
-			currentGuess: action.currentGuess,
-			guessArray.push(currentGuess)
-		};
-	} else {
-		return state;
-	}
-};
-
-// const guessArrayReducer = (state = [], action) => {
-// 	if (action.type === actions.RECORD_GUESS) {
-// 		return [...state, action.newGuess];
-// 	} else {
-// 		return state;
-// 	}
-// };
-
-const hasWon = (state = false, action) => {
-	if (action.type === actions.HAS_WON) {
-		return action.bool;
-	} else {
-		return state;
-	}
-};
-
-export default combineReducers({
-	answer: answerReducer,
-	currentGuess: guessReducer,
-	guessArray: guessArrayReducer,
-	hasWon: hasWon
-});
+export const hotOrColdReducer = (state=initialHotOrColdState, action) => {
+  if (action.type === actions.NUMBER_GEN) {
+    return {...state,
+      secretNumber: action.number
+    };
+  }
+  if (action.type === actions.SUBMIT_GUESS) {
+    // console.log(action.type, action.guess);
+    // console.log(state.secretNumber);
+    let newMessage;
+    if (action.guess !== state.secretNumber) {
+      newMessage = "Wrong!!!!";
+      }
+      else if (action.guess === state.secretNumber) {
+        newMessage = "Yes, that's it!";
+      }
+    return {...state,
+      guess: [...state.guess ,action.guess],
+      message: newMessage
+    };
+  }
+  else if (action.type === actions.NEW_GAME) {
+    state=initialHotOrColdState;
+    //refresh page
+  }
+  return state;
+}
