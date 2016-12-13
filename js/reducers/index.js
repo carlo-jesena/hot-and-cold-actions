@@ -2,11 +2,11 @@ import * as actions from '../actions/index';
 import {combineReducers} from 'redux';
 
 const answerReducer = (state = '', action) => {
-	console.log(action);
-	if (action.type === actions.GENERATED_NUMBER) {
-		return action.answer;
-	} else {
-		return state;
+	switch (action.type) {
+		case actions.GENERATED_NUMBER:
+			return action.answer;
+		default:
+			return state;
 	}
 };
 
