@@ -1,6 +1,14 @@
 import * as actions from '../actions/index';
 import {combineReducers} from 'redux';
 
+// state =
+// {
+   answer: 12
+// currentGuess:
+// guessArray:
+// hasWon:
+// }
+
 const answerReducer = (state = '', action) => {
 	switch (action.type) {
 		case actions.GENERATED_NUMBER:
@@ -12,27 +20,23 @@ const answerReducer = (state = '', action) => {
 
 const guessReducer = (state = '', action) => {
 	if (action.type === actions.GUESS) {
-		return action.userGuess;
+		//
+		return {
+			currentGuess: action.currentGuess,
+			guessArray.push(currentGuess)
+		};
 	} else {
 		return state;
 	}
 };
 
-const guessArrayReducer = (state = [], action) => {
-	if (action.type === actions.RECORD_GUESS) {
-		return [...state, action.newGuess];
-	} else {
-		return state;
-	}
-};
-
-const evaluate = (state = '', action) => {
-	if (action.type === actions.FEEDBACK) {
-		return action.feedback;
-	} else {
-		return state;
-	}
-};
+// const guessArrayReducer = (state = [], action) => {
+// 	if (action.type === actions.RECORD_GUESS) {
+// 		return [...state, action.newGuess];
+// 	} else {
+// 		return state;
+// 	}
+// };
 
 const hasWon = (state = false, action) => {
 	if (action.type === actions.HAS_WON) {
@@ -44,8 +48,7 @@ const hasWon = (state = false, action) => {
 
 export default combineReducers({
 	answer: answerReducer,
-	userGuess: guessReducer,
-	feedback: evaluate,
+	currentGuess: guessReducer,
 	guessArray: guessArrayReducer,
 	hasWon: hasWon
 });

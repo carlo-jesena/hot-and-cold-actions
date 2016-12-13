@@ -1,3 +1,5 @@
+// UI -> Action -> State -> UI ...
+
 // ./actions/index.js
 
 export const GENERATED_NUMBER = 'GENERATED_NUMBER';
@@ -6,19 +8,17 @@ export const FEEDBACK = 'FEEDBACK';
 export const RECORD_GUESS = 'RECORD_GUESS';
 export const HAS_WON = 'HAS_WON';
 
+const guessArray = []
+
 export const generateNumber = answer => ({
 	type: GENERATED_NUMBER,
 	answer
 });
 
-export const guess = userGuess => ({
+export const guess = currentGuess => ({
 	type: GUESS,
-	userGuess
-});
-
-export const evaluate = (feedback) => ({
-	type: FEEDBACK,
-	feedback
+	currentGuess
+	guessArray
 });
 
 export const recordGuess = newGuess => ({

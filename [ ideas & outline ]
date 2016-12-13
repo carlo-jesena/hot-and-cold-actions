@@ -1,0 +1,23 @@
+state =
+{
+answer = NUMBER,
+guess = NUMBER,
+feedback = STRING,
+newGuess = ARRAY,
+bool = BOOLEAN
+}
+
+state =
+{
+answer:
+currentGuess: // calculating difference from answer
+guessArray: // displaying past answers
+hasWon:
+}
+
+* User types GUESS into text field / submits
+* React event listener captures
+* React dispatches action GUESS
+* GUESS action triggers reducer to update state
+
+* Compare GUESS with ANSWER and send feedback
