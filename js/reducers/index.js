@@ -11,8 +11,32 @@ const answerReducer = (state = '', action) => {
 };
 
 const guessReducer = (state = '', action) => {
+	if (action.type === actions.GUESS) {
+		return action.userGuess;
+	} else {
+		return state;
+	}
+};
+
+const guessArrayReducer = (state = [], action) => {
 	if (action.type === actions.RECORD_GUESS) {
-		return action.guess;
+		return [...state, action.newGuess];
+	} else {
+		return state;
+	}
+};
+
+const evaluate = (state = '', action) => {
+	if (action.type === actions.FEEDBACK) {
+		return action.feedback;
+	} else {
+		return state;
+	}
+};
+
+const hasWon = (state = false, action) => {
+	if (action.type === actions.HAS_WON) {
+		return action.bool;
 	} else {
 		return state;
 	}
@@ -20,5 +44,8 @@ const guessReducer = (state = '', action) => {
 
 export default combineReducers({
 	answer: answerReducer,
-	guess: guessReducer
+	userGuess: guessReducer,
+	feedback: evaluate,
+	guessArray: guessArrayReducer,
+	hasWon: hasWon
 });

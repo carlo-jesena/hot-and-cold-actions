@@ -10,15 +10,20 @@ store.dispatch(actions
 );
 
 store.dispatch(actions
+	.guess(11)
+);
+
+store.dispatch(actions
 	.recordGuess(11)
 );
 
 store.dispatch(actions
-	.hasWon(true)
-);
-
-store.dispatch(actions
-	.evaluate('Getting warm!')
+	.evaluate('You\'re getting warmer!')
 );
 
 console.log(store.getState());
+
+// REACT
+// - generate random number
+// - process user input
+// - calculate difference between answer and input; return feedback

@@ -2,36 +2,31 @@
 
 export const GENERATED_NUMBER = 'GENERATED_NUMBER';
 export const GUESS = 'GUESS';
-// export const HOT_OR_COLD_FEEDBACK = 'HOT_OR_COLD_FEEDBACK';
+export const FEEDBACK = 'FEEDBACK';
 export const RECORD_GUESS = 'RECORD_GUESS';
-export const WIN = 'WIN';
+export const HAS_WON = 'HAS_WON'
 
 export const generateNumber = answer => ({
 	type: GENERATED_NUMBER,
 	answer
 });
 
-// export const guess = userInputNumber => ({
-// 	type: GUESS,
-// 	userInputNumber
-// });
-//
-export const evaluate = answer => ({
-	type: HOT_OR_COLD_FEEDBACK,
-	answer
+export const guess = userGuess => ({
+	type: GUESS,
+	userGuess
 });
 
-export const recordGuess = guess => ({
+export const evaluate = (feedback) => ({
+	type: FEEDBACK,
+	feedback
+});
+
+export const recordGuess = newGuess => ({
 	type: RECORD_GUESS,
-	guess
+	newGuess
 });
 
 export const hasWon = bool => ({
-	type: WIN,
-	hasWon: bool
+	type: HAS_WON,
+	bool
 });
-
-
-
-// won?
-// messages to user
