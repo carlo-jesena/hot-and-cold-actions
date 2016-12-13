@@ -4,7 +4,7 @@ export const GENERATED_NUMBER = 'GENERATED_NUMBER';
 export const GUESS = 'GUESS';
 export const FEEDBACK = 'FEEDBACK';
 export const RECORD_GUESS = 'RECORD_GUESS';
-export const HAS_WON = 'HAS_WON'
+export const HAS_WON = 'HAS_WON';
 
 export const generateNumber = answer => ({
 	type: GENERATED_NUMBER,
