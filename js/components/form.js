@@ -19,6 +19,9 @@ class Form extends React.Component {
 	}
 
   render() {
+		const feedbackDisplay = this.props.game.message;
+		const guessArrayDisplay = this.props.game.guess.join(', ');
+
     return (
       <div className="gameForm">
 				<form onSubmit={this.sendUserGuess}>
@@ -30,8 +33,8 @@ class Form extends React.Component {
 							Take a guess!
 					</button>
 				</form>
-        <p className="displayFeedback"> {} </p>
-        <p className="displayArray"> {} </p>
+        <p className="displayFeedback"> {feedbackDisplay} </p>
+        <p className="displayGuessArray"> {guessArrayDisplay} </p>
       </div>
     )
   }

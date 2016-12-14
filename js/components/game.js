@@ -3,8 +3,13 @@ import ReactDOM from 'react-dom';
 import Form from './form';
 import NewGame from './new-game';
 
-export default function Game () {
+function Game () {
   return (
-    <Form />
+		<div>
+			<Form />
+			<NewGame />
+		</div>
   )
 }
+
+export default Game;
