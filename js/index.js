@@ -11,7 +11,7 @@ import Game from './components/game';
 document.addEventListener('DOMContentLoaded', () => {
 	console.log('DOMContentLoaded')
 	return ReactDOM.render(
-		<Provider store={ store }>
+		<Provider store={store}>
 			<Game />
 		</Provider>,
 		document.getElementById('app')

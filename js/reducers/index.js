@@ -17,7 +17,7 @@ export const gameReducer = function(state = initial, action) {
   	case actions.SUBMIT_GUESS:
 			let newMessage = '';
 			let userGuess = +action.guess;
-      let difference = Math.abs(userGuess - state.secretNumber)
+      let difference = Math.abs(userGuess - state.secretNumber);
 
       if (userGuess === state.secretNumber) {
         newMessage = "Yaaaayyy you got it!!"

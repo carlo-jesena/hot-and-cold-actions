@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
 
-class Form extends React.Component {
+export class Form extends React.Component {
   constructor (props) {
     super(props);
 		this.sendUserGuess = this.sendUserGuess.bind(this);

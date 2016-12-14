@@ -7,23 +7,6 @@ import Form from '../js/components/form';
 const should = chai.should();
 let result;
 
-describe('Game component', function () {
-
-	beforeEach(() => {
-		const renderer = TestUtils.createRenderer();
-		renderer.render(<Game />);
-		result = renderer.getRenderOutput();
-	});
-
-	it('Renders Game component and its children', function() {
-		const children = result.props.children;
-		result.type.should.equal('div');
-		children.should.have.length(2);
-		result.props.children[0].should.be.an('object');
-	});
-
-});
-
 describe('Form component', function () {
 
 	beforeEach(() => {
