@@ -16,6 +16,7 @@ class Form extends React.Component {
 		event.preventDefault();
 		const userGuess = this.textInput.value;
 		this.props.dispatch(actions.submitGuess(userGuess));
+    this.textInput.value = '';
 	}
 
   render() {
