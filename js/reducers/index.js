@@ -17,13 +17,26 @@ export const gameReducer = function(state = initial, action) {
   	case actions.SUBMIT_GUESS:
 			let newMessage = '';
 			let userGuess = +action.guess;
+      let difference = Math.abs(userGuess - state.secretNumber)
 
-			switch (userGuess) {
-			 	case !userGuess: // 'not' user guess...
-	      	newMessage = "Wrong!!!!";
-				case state.secretNumber:
-					newMessage = "Yes, that's it!";
-	      }
+      if (userGuess === state.secretNumber) {
+        newMessage = "Yaaaayyy you got it!!"
+      }
+      if (difference <= 5) {
+        newMessage = "Woah getting hot"
+      }
+      if ((difference > 5) && (difference <= 10)) {
+        newMessage = "Getting warmer"
+      }
+      if ((difference > 10) && (difference <= 15)) {
+        newMessage = "You're cooling off"
+      }
+      if (difference > 15) {
+        newMessage = "Not even close"
+      }
+
+
+
 
 			return {...state,
 	      guess: [...state.guess, action.guess],
