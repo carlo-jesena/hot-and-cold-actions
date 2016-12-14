@@ -17,16 +17,17 @@ export const gameReducer = (state=initialState, action) => {
 		console.log('action.type, action.guess', action.type, action.guess);
     console.log('secret number', state.secretNumber);
 
-		let newMessage;
+		let newMessage = '';
+		const userGuess = +action.guess;
 
-    if (action.guess !== state.secretNumber) {
-      newMessage = "Wrong!!!!";
-      }
-      else if (action.guess === state.secretNumber) {
-        newMessage = "Yes, that's it!";
+		switch (action.guess) {
+			// why isn't this working?
+		 	case !state.secretNumber:
+      	newMessage = "Wrong!!!!";
+			case state.secretNumber:
+				newMessage = "Yes, that's it!";
       }
 
-			console.log('stet', state);
 		return {...state,
       guess: [...state.guess ,action.guess],
       message: newMessage
