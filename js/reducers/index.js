@@ -31,8 +31,8 @@ export const gameReducer = function(state = initial, action) {
 	    };
 
   	case actions.NEW_GAME:
-			console.log('Time for a new game')
-			return Object.assign({}, initial);
+			return initial;
+
   default:
 		return state;
 	}

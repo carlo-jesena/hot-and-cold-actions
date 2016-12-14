@@ -8,8 +8,6 @@ import store from './store';
 
 import Game from './components/game';
 
-document.addEventListener('DOMContentLoaded', () => {
-	console.log('DOMContentLoaded')
 	return ReactDOM.render(
 		<Provider store={ store }>
 			<Game />

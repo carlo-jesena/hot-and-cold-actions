@@ -22,8 +22,8 @@ render () {
 	}
 }
 
-const mapStateToProps = (state, props) => ({
-  game: state
+const mapStateToProps = (state) => ({
+  game: state.newGame
 });
 
 export default connect(mapStateToProps)(NewGame);
