@@ -4,7 +4,6 @@ import * as actions from '../actions/index';
 
 class Form extends React.Component {
   constructor (props) {
-		console.log('Form props logged', props);
     super(props);
 		this.sendUserGuess = this.sendUserGuess.bind(this);
   }

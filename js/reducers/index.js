@@ -1,44 +1,37 @@
 import * as actions from '../actions/index';
-const initialState = {
+const initial = {
   secretNumber: 0,
   guess: [],
   message: ''
 };
 
-export const gameReducer = (state=initialState, action) => {
-  if (action.type === actions.NUMBER_GEN) {
+export const gameReducer = function(state = initial, action) {
+	console.log('gameReducer', state);
+
+	let newMessage = '';
+	const userGuess = +action.guess;
+
+  switch (action.type) {
+		case actions.NUMBER_GEN:
     return {...state,
       secretNumber: action.number
     };
-  }
-
-  if (action.type === actions.SUBMIT_GUESS) {
-
-		console.log('action.type, action.guess', action.type, action.guess);
-    console.log('secret number', state.secretNumber);
-
-		let newMessage = '';
-		const userGuess = +action.guess;
-
-		switch (action.guess) {
-			// why isn't this working?
-		 	case !state.secretNumber:
-      	newMessage = "Wrong!!!!";
-			case state.secretNumber:
-				newMessage = "Yes, that's it!";
-      }
-
-		return {...state,
-      guess: [...state.guess ,action.guess],
-      message: newMessage
-    };
-  }
-
-  else if (action.type === actions.NEW_GAME) {
-    state=initialHotOrColdState;
+  	case actions.SUBMIT_GUESS:
+			switch (userGuess) {
+				// why isn't this working?
+			 	case !userGuess:
+	      	newMessage = "Wrong!!!!";
+				case state.secretNumber:
+					newMessage = "Yes, that's it!";
+	      }
+			return {...state,
+	      guess: [...state.guess, action.guess],
+	      message: newMessage
+	    };
+  	case actions.NEW_GAME:
+		console.log('Time for a new game')
     //refresh page
-  }
-
-  return state;
-
+  default:
+		return state;
+	}
 }
