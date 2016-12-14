@@ -22,7 +22,7 @@ export const gameReducer = function(state = initial, action) {
       if (userGuess === state.secretNumber) {
         newMessage = "Yaaaayyy you got it!!"
       }
-      if (difference <= 5) {
+      if ((difference > 0) && (difference <= 5)) {
         newMessage = "Woah getting hot"
       }
       if ((difference > 5) && (difference <= 10)) {
