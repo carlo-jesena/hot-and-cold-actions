@@ -3,25 +3,36 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/index';
 
 class Form extends React.Component {
-  constructor () {
-    super();
-		// this.sendUserGuess = this.sendUserGuess.bind(this);
+  constructor (props) {
+		console.log('Form props logged', props);
+    super(props);
+		this.sendUserGuess = this.sendUserGuess.bind(this);
   }
 
-	// sendUserGuess (event) {
-	// 	event.preventDefault();
-	// 	this.props.dispatch(actions.submitGuess(event.target.value)); // not gonna work
-	// }
+	componentDidMount () {
+		this.props.dispatch(actions.numberGen());
+	}
+
+	sendUserGuess (event) {
+		event.preventDefault();
+		const userGuess = this.textInput.value;
+		this.props.dispatch(actions.submitGuess(userGuess));
+	}
 
   render() {
     return (
-      <div className = "gameForm">
-				<form>
-        	<input type = "text" />
-	        <button type = "submit"> Take a guess! </button>
+      <div className="gameForm">
+				<form onSubmit={this.sendUserGuess}>
+        	<input
+						type="text"
+						ref={input => this.textInput = input}/>
+					<button
+						type="submit">
+							Take a guess!
+					</button>
 				</form>
-        <p className = "displayFeedback"> {} </p>
-        <p className = "displayArray"> {} </p>
+        <p className="displayFeedback"> {} </p>
+        <p className="displayArray"> {} </p>
       </div>
     )
   }
