@@ -6,10 +6,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 
+console.log('STORE', store);
+
 import Game from './components/game';
 
 document.addEventListener('DOMContentLoaded', () => {
-	console.log('DOMContentLoaded')
+	// console.log('DOMContentLoaded')
 	return ReactDOM.render(
 		<Provider store={store}>
 			<Game />

@@ -19,6 +19,12 @@ export const gameReducer = function(state = initial, action) {
 			let userGuess = +action.guess;
       let difference = Math.abs(userGuess - state.secretNumber);
 
+			if (userGuess.toString() === NaN.toString()) {
+				return {...state,
+		      guess: [...state.guess],
+		      message: "Please enter a number!"
+		    };
+			}
       if (userGuess === state.secretNumber) {
         newMessage = "Yaaaayyy you got it!!"
       }
@@ -34,9 +40,6 @@ export const gameReducer = function(state = initial, action) {
       if (difference > 15) {
         newMessage = "Not even close"
       }
-
-
-
 
 			return {...state,
 	      guess: [...state.guess, action.guess],
