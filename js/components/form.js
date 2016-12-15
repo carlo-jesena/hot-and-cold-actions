@@ -10,6 +10,7 @@ export class Form extends React.Component {
 
 	componentDidMount () {
 		this.props.dispatch(actions.numberGen());
+    this.props.dispatch(actions.fetchFewest());
 	}
 
 	sendUserGuess (event) {
@@ -22,6 +23,8 @@ export class Form extends React.Component {
   render() {
 		const feedbackDisplay = this.props.game.message;
 		const guessArrayDisplay = this.props.game.guess.join(', ');
+    const fewestGuessesDisplay = this.props.game.fewestGuesses;
+    const countDisplay = this.props.game.count;
 
     return (
       <div className="gameForm">
@@ -35,7 +38,9 @@ export class Form extends React.Component {
 					</button>
 				</form>
         <p className="displayFeedback"> {feedbackDisplay} </p>
-        <p className="displayGuessArray"> {guessArrayDisplay} </p>
+        <p className="displayGuessArray">Your Guesses: {guessArrayDisplay} </p>
+        <div className="displayCount">Number of Guesses: {countDisplay} </div>
+        <div className="displayFewestGuesses">Fewest Guesses:{fewestGuessesDisplay} </div>
       </div>
     )
   }

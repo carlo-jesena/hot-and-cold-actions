@@ -2,7 +2,9 @@ import * as actions from '../actions/index';
 const initial = {
   secretNumber: 0,
   guess: [],
-  message: ''
+  message: '',
+  count: null,
+  fewestGuesses:null
 };
 
 export const gameReducer = function(state = initial, action) {
@@ -18,6 +20,8 @@ export const gameReducer = function(state = initial, action) {
 			let newMessage = '';
 			let userGuess = +action.guess;
       let difference = Math.abs(userGuess - state.secretNumber);
+      let count= state.count;
+      let fewestGuesses= state.fewestGuesses;
 
 			if (userGuess.toString() === NaN.toString()) {
 				return {...state,
@@ -40,15 +44,21 @@ export const gameReducer = function(state = initial, action) {
       if (difference > 15) {
         newMessage = "Not even close"
       }
+      count++;
 
-			return {...state,
+      return {...state,
 	      guess: [...state.guess, action.guess],
-	      message: newMessage
+	      message: newMessage,
+        count,
+        fewestGuesses
 	    };
 
   	case actions.NEW_GAME:
 			console.log('Time for a new game')
 			return Object.assign({}, initial);
+
+    case actions.FETCH_FEWEST_GUESSES:
+      return {...state, fewestGuesses: action.num};
   default:
 		return state;
 	}
