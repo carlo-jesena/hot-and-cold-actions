@@ -16,7 +16,7 @@ export class Form extends React.Component {
 	sendUserGuess (event) {
 		event.preventDefault();
 		const userGuess = this.textInput.value;
-		this.props.dispatch(actions.submitGuess(userGuess));
+		this.props.dispatch(actions.submitGuess(userGuess, this.props.game.secretNumber));
     this.textInput.value = '';
 	}
 

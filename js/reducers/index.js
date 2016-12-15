@@ -59,6 +59,27 @@ export const gameReducer = function(state = initial, action) {
 
     case actions.FETCH_FEWEST_GUESSES:
       return {...state, fewestGuesses: action.num};
+
+    case actions.SAVE_FEWEST_GUESSES:
+      let lastGuess = state.guess[-1];
+      let currentCount = state.count;
+      let correctNumber = state.secretNumber;
+      let fewestGuesses = state.fewestGuesses
+
+      if (lastGuess === correctNumber) {
+        if (currentCount < fewestGuesses) {
+          return {...state, fewestGuesses: currentCount};
+        }
+      }
+
+//if guess === secret number {
+  //if count < fewest guesses 
+  //update fewest guesses state
+  //make post action
+//}
+
+//popup telling user they beat the top score
+
   default:
 		return state;
 	}
